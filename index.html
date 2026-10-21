@@ -1,35 +1,48 @@
-<DOCTYPE html> 
-
+<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Memórias Delas – SNCT 2026</title>
     <link rel="stylesheet" href="dist/output.css">
 </head>
-<!-- Notas -->
- <!-- 
-Cada bloco do jogo possuem 12px de largura.
-grid do map padrão é de 21x15
 
- -->
+<body class="grid h-screen place-items-center overflow-hidden bg-black font-sans">
+    <main id="stage" class="relative h-[576px] w-[960px] origin-center overflow-hidden bg-night">
 
-<body class=
-"
-flex justify-center items-center
-">
-    <main class=
-    "
-    bg-gray-400
-    h-240 w-336
-    grid grid-cols-21
-    "
-    id="map"
-    >
-        <div class="bg-red-300 h-16 w-16"></div>
+        <header class="absolute inset-x-0 top-0 z-30 flex h-12 items-center justify-between bg-plum px-5 text-[17px] text-white">
+            <b class="text-[19px]">Memórias Delas · SNCT 2026</b>
+            <span id="room">Sala inicial</span>
+            <span id="count">0 / 6</span>
+        </header>
 
-    </main> 
+        <div id="map" class="floor-grid absolute top-12 left-0 h-[528px] w-[960px] bg-lilac"></div>
 
-<script type="module" src="codex.js"></script>
+        <div id="player" class="absolute top-0 left-0 z-10 h-[95px] w-[47.5px] bg-size-[190px_380px] bg-no-repeat transition-[left,top] ease-linear [image-rendering:pixelated]"></div>
+
+        <div id="hint" class="absolute inset-x-0 bottom-2 z-30 text-center text-sm text-lilac"></div>
+
+        <!-- ficha da cientista / final do jogo -->
+        <div id="card" role="dialog" aria-modal="true" class="absolute inset-0 z-40 hidden place-items-center bg-night/80">
+            <article class="w-[580px] max-w-[90%] rounded-xl border-t-10 border-t-[color:var(--c)] bg-white px-8 py-6.5">
+                <p id="cTag" class="mb-1.5 text-sm text-muted"></p>
+                <h2 id="cNome" class="text-[28px] text-plum"></h2>
+                <p id="cArea" class="mb-3.5 text-[15px] text-muted"></p>
+                <p id="cTexto" class="mb-3 text-[17px] leading-normal text-neutral-800"></p>
+                <p id="cFun" class="rounded-lg bg-[#f4eefc] px-3.5 py-2.5 text-[15px]"></p>
+                <button id="cFechar" class="mt-3.5 cursor-pointer rounded-lg bg-plum px-5.5 py-2.5 text-base text-white focus-visible:outline-3 focus-visible:outline-[#ffd23f]">Continuar (E)</button>
+            </article>
+        </div>
+
+        <!-- abertura: tela preta + mensagem -->
+        <div id="intro" class="absolute inset-0 z-100 flex cursor-pointer flex-col items-center justify-center gap-5.5 bg-black px-15 text-center text-white transition-opacity duration-[1200ms]">
+            <p id="l1" class="text-[30px] leading-snug opacity-0 transition-opacity duration-[1600ms]">Você precisa encontrar a memória perdida de cada cientista.</p>
+            <p id="l2" class="text-[19px] text-[#cfc4e6] opacity-0 transition-opacity duration-[1600ms]">Este é um puzzle informativo.</p>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
