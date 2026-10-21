@@ -102,7 +102,7 @@ const feitas = new Set(), held = [];
 const dirs = { w: [0, -1], s: [0, 1], a: [-1, 0], d: [1, 0] };
 const teclas = { w: "w", arrowup: "w", a: "a", arrowleft: "a", s: "s", arrowdown: "s", d: "d", arrowright: "d" };
 
-player.style.backgroundImage = "url('../img/AbigailWalk.png')";
+player.style.backgroundImage = "url('../img/abigailWalk.png')";
 player.style.transitionDuration = MS + "ms";
 
 // classes Tailwind dos elementos criados aqui
